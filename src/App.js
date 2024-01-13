@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Test1 from "./test1";
+
+const withLayout = (Component) => {
+  return (
+    <>
+      {Component} 
+    </>
+  );
+}
+
+const router = createBrowserRouter([
+  {
+    path: '/test1',
+    element: withLayout(<Test1 />),
+    errorElement: "로딩중"
+  }
+]);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RouterProvider router={router}/>
   );
 }
 
