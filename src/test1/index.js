@@ -138,7 +138,7 @@ const Test1 = () => {
             </div>
             <div className='flex-col my-8'>
                 <div className='flex justify-center'>
-                    {imgBase64 ? <img id="srcImg" src={imgBase64} alt='Input' className='rounded-full w-40 h-40'/> : null}
+                    {showResult ? <img id="srcImg" src={imgBase64} alt='Input' className='rounded-full w-40 h-40'/> : null}
                 </div>
             </div>
             <div className='my-8 flex justify-center items-center'>
