@@ -54,7 +54,7 @@ const Test1 = () => {
               console.log("setkeyword 실행")
               break;
             case "현대사기꾼":
-                setKeyword("사기꾼 관상으로 주변인에게 피해를 입혀 자신의 이익으로 챙길 관상입니다.");
+                setKeyword("사기꾼 관상으로 주변인에게 피해를 입혀 자신의 이익을 챙길 관상입니다.");
                 console.log("setkeyword 실행")
                 break;
             case "현대흉악범죄":
