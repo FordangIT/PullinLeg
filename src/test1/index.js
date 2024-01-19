@@ -35,6 +35,7 @@ const Test1 = () => {
         model = await tmImage.load(modelURL, metadataURL); 
         const tempImage = document.getElementById("srcImg"); 
         const prediction = await model.predict(tempImage, false); 
+        console.log(prediction, 'prediction')
         prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
         
         setPredictionArr(prediction)
@@ -45,13 +46,25 @@ const Test1 = () => {
         console.log(result, '바뀌어야함')
         switch(prediction[0].className){
             case "독립운동가":
-              setKeyword("독립운동가 관상으로 주변인에게 두터운 신뢰로 관계를 이어가는 관상입니다");
+              setKeyword("강한 책임감으로 절대 배신하지 않을 독립운동가 관상입니다.");
               console.log("setkeyword 실행")
               break;
             case "친일파":
-              setKeyword("친일파 관상으로 자신의 이익을 위해 언제든 배신을 할 준비가 되어있는 관상입니다");
+              setKeyword("친일파 관상으로 자신의 이익을 위해 언제든 나라를 팔 준비가 되어있는 관상입니다");
               console.log("setkeyword 실행")
               break;
+            case "현대사기꾼":
+                setKeyword("사기꾼 관상으로 주변인에게 피해를 입혀 자신의 이익으로 챙길 관상입니다.");
+                console.log("setkeyword 실행")
+                break;
+            case "현대흉악범죄":
+                setKeyword("큰 범죄를 저지를 관상으로 은둔하며 살지 말고, 사회생활을 활발하게 함으로써 밝은 에너지로 살아가시길 바랍니다.");
+                console.log("setkeyword 실행")
+                break;
+            case "현대의인":
+                setKeyword("현대 의인 관상으로, 자신의 삶에서 기회가 된다면 다른 사람들을 도울 관상입니다.");
+                console.log("setkeyword 실행")
+                break;                  
             default:
               break;
           }
@@ -96,7 +109,7 @@ const Test1 = () => {
                 </span>
             </div>
             <div className='mt-5 flex justify-center items-center'>
-                <span className='text-gray-500 text-xs'>대표적인 독립운동가,친일파 데이터를 활용했습니다</span>
+                <span className='text-gray-500 text-xs'>대표적인 독립운동가, 의인/ 친일파, 사기꾼, 흉악범죄자 데이터를 학습시킨 AI입니다.</span>
             </div>
             {/* <div className='flex justify-center items-center mt-8 flex-col'>
                 <span className='text-main-ppink text-sm font-bold'>
@@ -108,7 +121,7 @@ const Test1 = () => {
             </div> */}
             
             <div className='flex justify-center items-center mt-20 flex-col'>
-                {showResult? <span className='text-md'>{keyword}</span> : <span className='text-main-ppink text-sm font-bold'>{loading? <Loading /> : <span className='text-main-ppink text-sm font-bold'>'클릭'하여, 얼굴 정면 사진을 업로드해주세요!!😊</span> }</span>}
+                {showResult? <span className='text-main-ppink text-sm font-bold'>밑에서 결과를 확인할 수 있습니다.</span>: <span className='text-main-ppink text-sm font-bold'>{loading? <Loading /> : <span className='text-main-ppink text-sm font-bold'>'클릭'하여, 얼굴 정면 사진을 업로드해주세요!!😊</span> }</span>}
             </div>
             <div className='flex justify-center items-center mt-12'>
               <div onClick={()=> {inputRef.current.click()}} className='w-80 h-44 rounded-2xl bg-main-green hover:bg-main-yellow'>
@@ -117,14 +130,23 @@ const Test1 = () => {
                 {/* <span className='text-xs text-gray-600'>얼굴 정면 사진을 업로드하세요!</span> */}
               </div>
             </div>
-            {/* <div className='flex-col h-80'>
+            <div className='flex justify-center items-center my-24'>
+                <button onClick={restart} className='w-20 h-8 bg-gray-700 rounded-sm'><span className='text-white'>다시하기</span></button>
+            </div> 
+            <div className='mt-20 flex justify-center items-center'>
+               {showResult ? <span className='text-main-ppink text-md font-bold'>결과🙊</span> : ""}
+            </div>
+            <div className='flex-col my-8'>
                 <div className='flex justify-center'>
                     {imgBase64 ? <img id="srcImg" src={imgBase64} alt='Input' className='rounded-full w-40 h-40'/> : null}
                 </div>
-            </div> */}
-            <div className='flex justify-center items-center my-24'>
-                <button onClick={restart} className='w-20 h-8 bg-gray-700 rounded-sm'><span className='text-white'>다시하기</span></button>
-            </div>   0 
+            </div>
+            <div className='my-8 flex justify-center items-center'>
+               {showResult ? <span className='text-md w-2/3 font-semibold'>{keyword}</span> : ""}
+            </div>
+            
+            
+           
         </div>
     </div>
  )
