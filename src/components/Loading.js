@@ -1,7 +1,7 @@
 import { LinearProgress } from "@mui/material"
 function Loading() {
 return(
-<div className="flex-col items-center justify-center h-screen"> 
+<div className="flex-col items-center justify-center"> 
     <div className="mt-4">
         <LinearProgress color="secondary"/>
     </div>
