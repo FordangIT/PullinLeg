@@ -12,11 +12,6 @@ const withLayout = (Component) => {
 const router = createBrowserRouter([
   {
     path: '/',
-    element: withLayout(<Main />),
-    errorElement: "로딩중"
-  },
-  {
-    path: '/test1',
     element: withLayout(<Test1 />),
     errorElement: "로딩중"
   },
