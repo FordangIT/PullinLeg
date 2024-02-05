@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import * as tf from '@tensorflow/tfjs';
 import * as tmImage from '@teachablemachine/image';
 import Loading from '../components/Loading';
+import Footer from '../components/Footer';
 const Test1 = () => {
     const [imgBase64, setImgBase64] = useState("")
     const [imgFile, setImgFile] = useState(null);
@@ -146,8 +147,9 @@ const Test1 = () => {
             </div>
             
             
-           
+            <Footer />    
         </div>
+       
     </div>
  )
 };
