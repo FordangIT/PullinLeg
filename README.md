@@ -1,7 +1,7 @@
 ## 🙉 PullinLeg
 
 ## 사이트 
-#### https://www.pullinleg.site/test1
+#### https://www.pullinleg.site
 
 ---
 
